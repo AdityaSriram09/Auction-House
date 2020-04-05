@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Start bid:</strong>
+  <%= @product.start_bid %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @product.deadline.in_time_zone("Chennai") %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @product.contact %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @product.image %>
+  <%= image_tag @product.image_url() if @product.image? %>
+</p>
+
+<p>
+  <strong>Current bid:</strong>
+  <%= @product.current_bid %>
+</p>
+
+<p>
+  <strong>Current bidder:</strong>
+  <%= @product.current_bidder %>
+</p>
+
+<p>
+  <strong>Sold:</strong>
+  <%= @product.sold %>
+</p>
+<%= link_to "DOWNLOAD PDF", product_path(@product, :format => :pdf),class: "btn" %>
+<%if ((@product.user == current_user) && ((@product.deadline - DateTime.now) >= 0))%>
+<%= link_to 'Edit', edit_product_path(@product),class:"btn btn-outline-warning" %>
+<%= link_to 'Back', products_path ,class:"btn btn-outline-info"%>
+<%else %>
+<%= link_to 'Back', products_path ,class:"btn btn-outline-info"%>
+<%end %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  start_bid: 1
+  deadline: 2020-03-31 17:37:39
+  contact: MyString
+  image: 
+  current_bid: 1
+  current_bidder: MyString
+  sold: false
+
+two:
+  name: MyString
+  description: MyText
+  start_bid: 1
+  deadline: 2020-03-31 17:37:39
+  contact: MyString
+  image: 
+  current_bid: 1
+  current_bidder: MyString
+  sold: false

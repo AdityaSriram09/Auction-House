@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Start bid:</strong>
+  <%= @product.start_bid %>
+</p>
+
+<p>
+  <strong>Deadline:</strong>
+  <%= @product.deadline %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @product.contact %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @product.image %>
+  <%= image_tag @product.image_url() if @product.image? %>
+</p>
+
+<p>
+  <strong>Current bid:</strong>
+  <%= @product.current_bid %>
+</p>
+
+<p>
+  <strong>Current bidder:</strong>
+  <%= @product.current_bidder %>
+</p>
+
+<%= form_for(:bidding, :url => bidding_product_path, method: :get, :html => {:class => "form-horizontal form-label-left"}) do |form| %>
+<% if @product.start_bid.to_i > @product.current_bid.to_i %>
+  <div class="field">
+    <%= form.label :current_bid %>
+    <%= form.number_field :current_bid,:min => (@product.start_bid.to_i)+1 %>
+  </div>
+    <%else %>
+    <%= form.label :current_bid %>
+    <%= form.number_field :current_bid,:min => (@product.current_bid.to_i)+1 %>
+    <% end %>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+<%= link_to 'Back', products_path ,class:"btn btn-outline-info"%>
