@@ -52,12 +52,13 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @product = Product.find(params[:id])
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "Product No.",
-               template: "products/show.pdf.erb",
-               layout: "pdf.html"
+        render :pdf => "receipt.pdf",
+               :template => 'products/show.html.erb',
+               :layout =>  'pdf.html'
       end
     end
   end
