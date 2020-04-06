@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'products/webnav', to:'products#webnav'
   devise_for :users
   resources :products do
     member do
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
       get :claimeditems
       get :my_sold_products
       get :otherclaims
+      get :unsold
     end
   end
   root 'products#index'

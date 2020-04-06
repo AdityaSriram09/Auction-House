@@ -7,32 +7,56 @@ class ProductsController < ApplicationController
   def index
     @products = Product.where(:sold => false )
   end
+  # This is to render the current user's claimed products page (claimeditems)
+  # GET/products(conditions=> sold : true, current_bidder : current_user)
+  def claimeditems
+    @products = Product.where(:sold => true,:current_bidder => current_user.name)
+  end
+
   # The products that current user sold
+  # GET/sold products
   def my_sold_products
     @products = Product.where(:user_id => current_user,:sold => true)
   end
+
   # All the products that current user has put up for sale/auction
+  # GET/ products up for sale
   def my_products
     @products = Product.where(:user_id => current_user,:sold => false)
   end
-  #This renders all products in which the current user is the highest bidder
+
+  # All unsold products
+  # GET
+  def unsold
+    @products = Product.where(:sold => false, :current_bid => 0)
+  end
+
+  #This renders all unsold products in which the current user is the highest bidder
+  # Request:GET
   def mybids
     @products = Product.where(:current_bidder => current_user.name,:sold => false)
   end
-  #Products claimed by other people
+
+  #Products claimed
+  # Request:GET/all sold/claimed products
   def otherclaims
     @products = Product.where(:sold => true)
   end
+
+  #Site navigation page
+  # GET Request
+  def webnav
+  end
+
+
   # GET /products/1
   # GET /products/1.json
-
   def show
-
     respond_to do |format|
       format.html
       format.pdf do
         render pdf: "Product No.",
-               template: "products/show.html.erb",
+               template: "products/show.pdf.erb",
                layout: "pdf.html"
       end
     end
@@ -46,27 +70,31 @@ class ProductsController < ApplicationController
   # GET /products/1/edit
   def edit
   end
-  # This is to render the current user's claimed products page (claimeditems)
-  def claimeditems
-    @products = Product.where(:sold => true,:current_bidder => current_user.name)
-  end
+
   # Bid Action: When you hit submit in the bidding form after entering bidding amount, it updates corresponding fields in DB
+  #GET and PUT
   def bidding
     @product = Product.find(params[:id])
     @product.update_attributes(current_bidder: current_user.name)
     @product.update_attributes(current_bid: params[:bidding][:current_bid])
     redirect_to products_path
   end
+
   # Claim Action: When you hit button claim(updates soldto and sold fields correspondingly)
+  #Request: PUT
   def claim
     @product = Product.find(params[:id])
     @product.update_attributes(soldto: current_user.name)
     @product.update_attributes(sold: true )
+    redirect_to products_path
   end
+
   # To go to bid page/ bid form
+  # GET
   def bid
     @product = Product.find(params[:id])
   end
+
   # POST /products
   # POST /products.json
   def create

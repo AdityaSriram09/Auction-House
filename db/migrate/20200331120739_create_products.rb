@@ -9,7 +9,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.binary :image
       t.integer :current_bid
       t.string :current_bidder
-      t.boolean :sold
+      t.boolean :sold , default: false
 
       t.timestamps
     end

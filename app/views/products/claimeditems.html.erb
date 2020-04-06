@@ -25,7 +25,7 @@
         <td><%= product.current_bid %></td>
         <td><%= product.deadline.in_time_zone("Chennai")%></td>
         <td><%= product.contact %></td>
-        <td><%= product.image %><%= image_tag product.image.url() if product.image? %></td>
+        <td><%= image_tag product.image.url(), :size => "250x200", :crop => :fill if product.image? %></td>
         <td><%= link_to 'Show', product,class:"btn btn-outline-info" %></td>
   <% end %>
   </tbody>
