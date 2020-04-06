@@ -60,11 +60,10 @@
 	* All the features mentioned in :
 		https://docs.google.com/document/d/1ZeF3OgB_SSQrFhCwBgDLO6c3-DJqsVADbQ3BXtUs79Y/edit
 	 have been implemented
+	* Receipt of the sold product can also be downloaded in pdf format.
 	* If a product is unsold,the seller still has got the option to either take it down or improve 
 	  and extend it's deadline so that it get's automatically re-posted into the Auction market.
-
-* Planned Feature : generation of receipt.
-
+	  
 * Disadvantages/Bugs:
 	* Deadline has to be entered in UTC(+0:00).
 	* Once the deadline of a product is up, the owner can't see his product until the guy who bought it claims it.
