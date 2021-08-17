@@ -1,6 +1,12 @@
 # README
-
-
+## The market place before bid
+### ![alt text](https://github.com/AdityaSriram09/Auction-House/blob/master/Images/Market%20Page%20after%20bid.png?raw=true)
+## The market place after bid
+### ![alt text](https://github.com/AdityaSriram09/Auction-House/blob/master/Images/Market%20Page.png?raw=true)
+## My Products Page
+### ![alt text](https://github.com/AdityaSriram09/Auction-House/blob/master/Images/My%20Products%20Page.png?raw=true)
+## For more images => https://github.com/AdityaSriram09/Auction-House/tree/master/Images
+--------------------------------------------------------------------------------------------------------------------------------------------
 * Ruby version --> ruby 2.6.1p33
 
 * Rails version --> Rails 5.2.4.2
@@ -76,9 +82,30 @@
 	* https://github.com/twbs/bootstrap-rubygem
 	  and more
 --------------------------------------------------------------------------------------------------------------------------------------------
-* Mentors:
+* Navigating the Website:
+	* Market:
+		* This is the place where you can bid for products other put up for auction.
+		
+	* Note : But you can't see your own products that are up for auction.
 
-	* Manas Gupta
-	* Vithik Shah
-	* Bharath Adikar
+	MY Stuff
+	It has 4 tabs
+
+		My Auction Items
+		This is where all the items you have put up for auction are displayed.
+
+		My Bids
+		This is where all the items in which you are highest bidder are displayed.
+	
+		My Claimed Items
+		This is where all the items that you have claimed are displayed.
+
+		My Sold Products
+		This is where all the items that you have sold are displayed.
+
+	* SELL
+		* This the form to put up products for auction.
+
+	* Other Sold Products
+		* This is where sold products are displayed 
 
